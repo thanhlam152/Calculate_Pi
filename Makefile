@@ -1,7 +1,6 @@
 all: 
 	make pi_serial
 	make pi_multi-thread
-	make code
 pi_serial: pi_serial.o
 	gcc pi_serial.o -o pi_serial
 
@@ -13,11 +12,5 @@ pi_multi-thread: pi_multi-thread.o
 
 pi_multi-thread.o: pi_multi-thread.c
 	gcc -c pi_multi-thread.c -lpthread 
-
-code: code.o
-	gcc code.c -o code -lpthread
-
-code.o: code.c
-	gcc -c code.c -lpthread
 clean:
-	rm -f *.o pi_serial pi_multi-thread code
+	rm -f *.o pi_serial pi_multi-thread 
